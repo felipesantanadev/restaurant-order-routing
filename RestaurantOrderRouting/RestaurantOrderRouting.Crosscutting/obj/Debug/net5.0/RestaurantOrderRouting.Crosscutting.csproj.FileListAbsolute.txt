@@ -1,0 +1,12 @@
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\bin\Debug\net5.0\RestaurantOrderRouting.Crosscutting.deps.json
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\bin\Debug\net5.0\RestaurantOrderRouting.Crosscutting.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\bin\Debug\net5.0\ref\RestaurantOrderRouting.Crosscutting.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\bin\Debug\net5.0\RestaurantOrderRouting.Crosscutting.pdb
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.AssemblyInfoInputs.cache
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.AssemblyInfo.cs
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.csproj.CoreCompileInputs.cache
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\ref\RestaurantOrderRouting.Crosscutting.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.pdb
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\RestaurantOrderRouting.Crosscutting\obj\Debug\net5.0\RestaurantOrderRouting.Crosscutting.csprojAssemblyReference.cache

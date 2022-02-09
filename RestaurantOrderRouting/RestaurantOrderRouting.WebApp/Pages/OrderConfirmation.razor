@@ -1,0 +1,19 @@
+﻿@page "/order-confirmation/{OrderNumber}"
+
+@inject NavigationManager NavManager
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 5%;">
+    <h3>Order Completed!</h3>
+    <h5>We received your order and it is being cooked by the best chefs!</h5>
+    <h1 style="margin-top: 70px;">Order Number</h1>
+    <h1>@OrderNumber</h1>
+    <br />
+    <button class="btn btn-primary btn-lg" @onclick="(() => Navigate())">Make a new order</button>
+</div>
+
+@code {
+    [Parameter]
+    public string OrderNumber { get; set; }
+
+    private void Navigate() => NavManager.NavigateTo($"/make-order");
+}

@@ -1,0 +1,39 @@
+﻿<button type="submit" class="btn @ColorClass @OtherClasses" @onclick="InvokeSubmit">
+    @if (IsHandlingSubmit)
+    {
+        <div style="display: flex; justify-content: center">
+            <div class="spinner-border text-light float-start spinner-border-sm" role="status"></div>
+        </div>
+    }
+    else
+    {
+        @Text
+    }
+</button>
+
+@code {
+    private bool    IsHandlingSubmit = false;
+
+    [Parameter]
+    public string Text { get; set; }
+
+    [Parameter]
+    public string ColorClass { get; set; } = "btn-primary";
+
+    [Parameter]
+    public string OtherClasses { get; set; } = string.Empty;
+
+    [Parameter]
+    public EventCallback OnSubmit { get; set; }
+
+    private async Task InvokeSubmit()
+    {
+        IsHandlingSubmit = true;
+        StateHasChanged();
+
+        await OnSubmit.InvokeAsync();
+
+        IsHandlingSubmit = false;
+        StateHasChanged();
+    }
+}

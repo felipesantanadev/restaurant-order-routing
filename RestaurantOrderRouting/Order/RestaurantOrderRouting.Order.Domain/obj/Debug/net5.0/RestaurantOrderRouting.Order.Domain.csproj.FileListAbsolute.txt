@@ -1,0 +1,15 @@
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\RestaurantOrderRouting.Order.Domain.deps.json
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\RestaurantOrderRouting.Order.Domain.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\ref\RestaurantOrderRouting.Order.Domain.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\RestaurantOrderRouting.Order.Domain.pdb
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.AssemblyInfoInputs.cache
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.AssemblyInfo.cs
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.csproj.CoreCompileInputs.cache
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\ref\RestaurantOrderRouting.Order.Domain.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.pdb
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.csprojAssemblyReference.cache
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\RestaurantOrderRouting.Crosscutting.dll
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\bin\Debug\net5.0\RestaurantOrderRouting.Crosscutting.pdb
+C:\Users\felipe.ssilva\source\repos\RestaurantOrderRouting\Order\RestaurantOrderRouting.Order.Domain\obj\Debug\net5.0\RestaurantOrderRouting.Order.Domain.csproj.CopyComplete

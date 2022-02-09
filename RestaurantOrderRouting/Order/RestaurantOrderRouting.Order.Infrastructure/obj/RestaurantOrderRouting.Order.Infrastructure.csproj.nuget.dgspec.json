@@ -1,0 +1,290 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Infrastructure\\RestaurantOrderRouting.Order.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\RestaurantOrderRouting.Order.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\RestaurantOrderRouting.Order.Application.csproj",
+        "projectName": "RestaurantOrderRouting.Order.Application",
+        "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\RestaurantOrderRouting.Order.Application.csproj",
+        "packagesPath": "C:\\Users\\felipe.ssilva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\felipe.ssilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj": {
+                "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.26.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj",
+        "projectName": "RestaurantOrderRouting.Order.Domain",
+        "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj",
+        "packagesPath": "C:\\Users\\felipe.ssilva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\felipe.ssilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj": {
+                "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Infrastructure\\RestaurantOrderRouting.Order.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Infrastructure\\RestaurantOrderRouting.Order.Infrastructure.csproj",
+        "projectName": "RestaurantOrderRouting.Order.Infrastructure",
+        "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Infrastructure\\RestaurantOrderRouting.Order.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\felipe.ssilva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\felipe.ssilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\RestaurantOrderRouting.Order.Application.csproj": {
+                "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Application\\RestaurantOrderRouting.Order.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj",
+        "projectName": "RestaurantOrderRouting.Crosscutting",
+        "projectPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj",
+        "packagesPath": "C:\\Users\\felipe.ssilva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\felipe.ssilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.25.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+﻿@page "/make-order"
+
+@using RestaurantOrderRouting.WebApp.Components.Buttons
+@using RestaurantOrderRouting.WebApp.Components.Alerts
+@using RestaurantOrderRouting.Kitchen.Application.Dtos;
+@using RestaurantOrderRouting.Order.Application.Dtos;
+@using RestaurantOrderRouting.Order.Application.Commands
+@using RestaurantOrderRouting.Crosscutting.Enum
+
+@inject IHttpService _httpService;
+@inject IConfiguration _configuration;
+@inject NavigationManager NavManager
+
+<h3>Make an Order</h3>
+<br />
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[0]" @onclick="() => ToggleTab(0)" id="home-tab" data-bs-toggle="tab" data-bs-target="#kitchen" type="button" role="tab" aria-controls="kitchen" aria-selected="true">Select the Kitchen</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[1]" @onclick="() => ToggleTab(1)" id="home-tab" data-bs-toggle="tab" data-bs-target="#grill" type="button" role="tab" aria-controls="grill" aria-selected="true">Burgers</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[2]" @onclick="() => ToggleTab(2)" id="profile-tab" data-bs-toggle="tab" data-bs-target="#fries" type="button" role="tab" aria-controls="fries" aria-selected="false">Fries</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[3]" @onclick="() => ToggleTab(3)" id="contact-tab" data-bs-toggle="tab" data-bs-target="#salad" type="button" role="tab" aria-controls="salad" aria-selected="false">Salads</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[4]" @onclick="() => ToggleTab(4)" id="contact-tab" data-bs-toggle="tab" data-bs-target="#drink" type="button" role="tab" aria-controls="drink" aria-selected="false">Drinks</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link @ActivatedTabs[5]" @onclick="() => ToggleTab(5)" id="contact-tab" data-bs-toggle="tab" data-bs-target="#deserts" type="button" role="tab" aria-controls="deserts" aria-selected="false">Deserts</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent" style="margin-bottom: 15%;">
+    <div class="tab-pane fade @ActivatedTabs[0] justify-content-center" id="kitchen" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row" style="display: flex; justify-content: center;">
+            <div class="col-md-6" style="margin-top: 10%;">
+                <div class="align-content-center">
+                    <h5 style="text-align: center;">Select a Kitchen to Make an Order</h5>
+                    <Alert Message="@Message" MessageClass="@MessageClass" />
+                    <div class="row">
+                        <select class="form-control" @bind="MakeOrderCommand.KitchenId">
+                            <option value="-1">Select a kitchen</option>
+                            @foreach (var kitchen in Kitchens)
+                            {
+                                <option value="@kitchen.Id">@kitchen.Name - @kitchen.PointOfSaleIndetifier</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade @ActivatedTabs[1]" id="grill" role="tabpanel" aria-labelledby="home-tab">
+        <br />
+        <div class="row" style="justify-content: center;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/grill/bigmc.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Double Salad</h5>
+                        <p class="card-text">Mouthwatering perfection starts with two 100% pure beef patties and XX sauce sandwiched between a sesame seed bun.</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Double Salad", ItemTag = "bigmc", KitchenArea = KitchenAreas.Grill }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/grill/bacon.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Simple Bacon</h5>
+                        <p class="card-text">Each Quarter Pounder® with Cheese Bacon burger features thick-cut applewood smoked bacon atop...</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Simple Bacon", ItemTag = "bacon", KitchenArea = KitchenAreas.Grill }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/grill/cheesburger.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheese Burger</h5>
+                        <p class="card-text">Each Quarter Pounder® with Cheese burger features a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked...</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Cheese Burger", ItemTag = "cheesburger", KitchenArea = KitchenAreas.Grill }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade @ActivatedTabs[2]" id="fries" role="tabpanel" aria-labelledby="profile-tab">
+        <br />
+        <div class="row" style="justify-content: center;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/fries/fries-small.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Small Fries</h5>
+                        <p class="card-text">McDonald's World Famous Fries® are made with premium potatoes such as the Russet Burbank and the Shepody. </p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Small Fries", ItemTag = "fries-small", KitchenArea = KitchenAreas.Fries }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/fries/fries-medium.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Medium Fries</h5>
+                        <p class="card-text">McDonald's World Famous Fries® are made with premium potatoes such as the Russet Burbank and the Shepody. </p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Medium Fries", ItemTag = "fries-medium", KitchenArea = KitchenAreas.Fries }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/fries/fries-medium.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Large Fries</h5>
+                        <p class="card-text">McDonald's World Famous Fries® are made with premium potatoes such as the Russet Burbank and the Shepody. </p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Large Fries", ItemTag = "fries-medium", KitchenArea = KitchenAreas.Fries }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade @ActivatedTabs[3]" id="salad" role="tabpanel" aria-labelledby="contact-tab">
+        <br />
+        <div class="row" style="justify-content: center;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/salad/crispy-chicken-salad.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Caesar Crispy Chicken Salad</h5>
+                        <p class="card-text">Our Caesar salad includes crispy breaded chicken breast pieces on a bed of crispy lettuce, cherry tomatoes, shredded cheese and garlic-herb flavoured croutons.</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Caesar Crispy Chicken Salad", ItemTag = "crispy-chicken-salad", KitchenArea = KitchenAreas.Salad }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade @ActivatedTabs[4]" id="drink" role="tabpanel" aria-labelledby="contact-tab">
+        <br />
+        <div class="row" style="justify-content: center;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/drinks/CocaCola.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Coca Cola</h5>
+                        <p class="card-text">You have never truly experienced a Coca-Cola until you’ve tried this! At McCafé we don’t just serve a Coca-Cola, we practice the ‘Perfect Serve’ to...</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Coca Cola", ItemTag = "CocaCola", KitchenArea = KitchenAreas.Drinks }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/drinks/cocacola-zero.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Coca Cola Zero</h5>
+                        <p class="card-text">You have never truly experienced a Coca-Cola until you’ve tried this! At McCafé we don’t just serve a Coca-Cola, we practice the ‘Perfect Serve’ to...</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Coca Cola Zero", ItemTag = "cocacola-zero", KitchenArea = KitchenAreas.Drinks }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/drinks/fanta.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Fanta</h5>
+                        <p class="card-text">You have never truly experienced a Fanta until you’ve tried this! A tangy orange soda to complement all of our meals...</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Fanta", ItemTag = "fanta", KitchenArea = KitchenAreas.Drinks }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade @ActivatedTabs[5]" id="deserts" role="tabpanel" aria-labelledby="contact-tab">
+        <br />
+        <div class="row" style="justify-content: center;">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/deserts/strawberry-sundae.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Strawberry Sundae</h5>
+                        <p class="card-text">All the goodness of a rich vanilla ice-cream coupled with a sweet and delicious strawberry syrup.  A match made in heaven!</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Strawberry Sundae", ItemTag = "strawberry-sundae", KitchenArea = KitchenAreas.Deserts }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/deserts/chocolate-sundae.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Chocolate Sundae</h5>
+                        <p class="card-text">Our smooth and creamy vanilla ice cream swirled in a cup and drizzled in chocolate sauce...an absolute treat!</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "Chocolate Sundae", ItemTag = "chocolate-sundae", KitchenArea = KitchenAreas.Deserts }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/deserts/McFlurry-Bounty.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">McFlurry Bounty</h5>
+                        <p class="card-text">Our smooth and creamy vanilla ice cream swirled in a cup and drizzled in chocolate sauce...an absolute treat!</p>
+                        <button class="btn btn-primary" @onclick="@(() => AddOrderItem(new Order.Application.Dtos.OrderItemDto() { ItemName = "McFlurry Bounty", ItemTag = "McFlurry-Bounty", KitchenArea = KitchenAreas.Deserts }))">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart-content">
+    <span class="oi oi-cart" style="font-size: 25px;" />
+    @foreach (var item in MakeOrderCommand.OrderItems)
+    {
+        <div class="cart-item" style="background-image: url('images/@item.KitchenArea.ToString().ToLower()/@(item.ItemTag).jpg')">
+            <div class="cart-item-remove" @onclick="@(() => RemoveOrderItem(item))">
+                <span class="oi oi-circle-x" />
+            </div>
+        </div>
+    }
+    @if (MakeOrderCommand.OrderItems.Count > 0)
+    {
+        <LoadingButton Text="Done!" ColorClass="btn-success" OtherClasses="cart-done" OnSubmit="@(async () => await SendOrder())" />
+    }
+</div>
+
+@code {
+    private string Message = string.Empty;
+    private string MessageClass = "danger";
+    private List<string> ActivatedTabs = new List<string>()
+    {
+        "show active", "", "", "", "", ""
+    };
+
+    private List<SimpleKitchenDto> Kitchens = new List<SimpleKitchenDto>();
+    private MakeOrderCommand MakeOrderCommand = new MakeOrderCommand();
+
+    private void AddOrderItem(Order.Application.Dtos.OrderItemDto item) => MakeOrderCommand.OrderItems.Add(item);
+    private void RemoveOrderItem(Order.Application.Dtos.OrderItemDto item) => MakeOrderCommand.OrderItems.Remove(item);
+
+    private void ToggleTab(int index)
+    {
+        for (int i = 0; i < ActivatedTabs.Count; i++)
+        {
+            if (i == index)
+                ActivatedTabs[i] = "show active";
+            else
+                ActivatedTabs[i] = "";
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _httpService.GetAsync<List<SimpleKitchenDto>>($"{_configuration["KITCHEN_API_ENDPOINT"]}/api/kitchens");
+
+        if (result.IsSuccess)
+            Kitchens = result.ResponseResult.Result;
+    }
+
+    private async Task SendOrder()
+    {
+        if (MakeOrderCommand.KitchenId <= 0)
+        {
+            Message = "Select the kitchen to make an order.";
+            ToggleTab(0);
+            return;
+        }
+        else
+        {
+            var result = await _httpService.PostAsync<MakeOrderCommand, SimpleOrderDto>($"{_configuration["ORDER_API_ENDPOINT"]}/api/orders", MakeOrderCommand);
+            MessageClass = result.MessageClass;
+
+            if (result.IsSuccess)
+                NavManager.NavigateTo($"/order-confirmation/{result.ResponseResult.Result.OrderId}");
+            else
+            {
+                Message = result.Message;
+                ToggleTab(0);
+                return;
+            }
+        }
+    }
+}

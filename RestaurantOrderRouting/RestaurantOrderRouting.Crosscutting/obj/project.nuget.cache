@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yKKhmbx4tRzN63qfPJAROrkgYgB3IgT15VMKurV0zj6JpN6PXnwi4yRZQNnCT3NOL5EDuBwwZ6lovJfzozP5EQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\RestaurantOrderRouting.Crosscutting\\RestaurantOrderRouting.Crosscutting.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\felipe.ssilva\\.nuget\\packages\\csharpfunctionalextensions\\2.25.0\\csharpfunctionalextensions.2.25.0.nupkg.sha512"
+  ],
+  "logs": []
+}

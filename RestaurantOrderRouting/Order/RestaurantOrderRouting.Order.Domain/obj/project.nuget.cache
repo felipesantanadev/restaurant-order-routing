@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WnxY9DtfbnitXrkXMOyLCUHF6Sexkbed1mI3ya6rxXXVAhvpZESY2oGuE+mMafq6yw0jrEOE5PA+eIpYMres3g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\felipe.ssilva\\source\\repos\\RestaurantOrderRouting\\Order\\RestaurantOrderRouting.Order.Domain\\RestaurantOrderRouting.Order.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\felipe.ssilva\\.nuget\\packages\\csharpfunctionalextensions\\2.25.0\\csharpfunctionalextensions.2.25.0.nupkg.sha512"
+  ],
+  "logs": []
+}

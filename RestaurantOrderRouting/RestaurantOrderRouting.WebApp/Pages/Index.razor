@@ -1,0 +1,97 @@
+﻿@page "/"
+
+@using RestaurantOrderRouting.WebApp.Components.Buttons
+@using RestaurantOrderRouting.WebApp.Components.Alerts
+@using RestaurantOrderRouting.Kitchen.Application.Dtos
+@using RestaurantOrderRouting.Kitchen.Application.Commands
+
+@inject IHttpService _httpService;
+@inject IConfiguration _configuration;
+@inject NavigationManager NavManager
+
+<div style="display: flex; align-items: center; justify-content: center; margin-top: 5%;">
+    <div class="col-md-6">
+        <div class="align-content-center">
+            <h5 style="text-align: center;">Select a Kitchen to Make an Order</h5>
+            <div class="row">
+                <select class="form-control" @bind="SelectedKitchenId">
+                    <option value="-1" selected>Select a kitchen</option>
+                    @foreach (var kitchen in Kitchens)
+                    {
+                        <option value="@kitchen.Id">@kitchen.Name - @kitchen.PointOfSaleIndetifier</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <LoadingButton Text="Manage Kitchen Orders" OtherClasses="w-100" OnSubmit="@(() => ManageKitchen())" />
+            <br />
+            <h5 style="text-align: center; margin-top: 50px;">Or Setup a New Kitchen</h5>
+            <Alert Message="@Message" MessageClass="@MessageClass" />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Kitchen's name</label>
+                    <input type="text" @bind="SetupKitchenCommand.Name" class="form-control" placeholder="The kitchen's name">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Point of Sale Identifier</label>
+                    <input type="text" @bind="SetupKitchenCommand.PointOfSaleIdentifier" class="form-control" placeholder="Ex: São Caetano do Sul - Santo Antônio">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Email address</label>
+                    <input type="email" @bind="SetupKitchenCommand.ContactEmail" class="form-control" placeholder="name@example.com">
+                </div>
+            </div>
+            <br />
+            <LoadingButton Text="Setup Kitchen" OtherClasses="w-100" OnSubmit="@(async () => await SetupKitchen())" />
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+@code {
+    private string Message = string.Empty;
+    private string MessageClass = "danger";
+    private List<SimpleKitchenDto> Kitchens = new List<SimpleKitchenDto>();
+    private SetupKitchenCommand SetupKitchenCommand = new SetupKitchenCommand();
+    private int SelectedKitchenId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _httpService.GetAsync<List<SimpleKitchenDto>>($"{_configuration["KITCHEN_API_ENDPOINT"]}/api/kitchens");
+
+        if (result.IsSuccess)
+            Kitchens = result.ResponseResult.Result;
+        else
+        {
+            MessageClass = result.MessageClass;
+            Message = result.Message;
+        }
+    }
+
+    protected void ManageKitchen()
+    {
+        NavManager.NavigateTo($"/kitchens/{SelectedKitchenId}/orders");
+    }
+
+    protected async Task SetupKitchen()
+    {
+        var result = await _httpService.PostAsync<SetupKitchenCommand, SimpleKitchenDto>($"{_configuration["KITCHEN_API_ENDPOINT"]}/api/kitchens", SetupKitchenCommand);
+        MessageClass = result.MessageClass;
+
+        if (result.IsSuccess)
+        {
+            Kitchens.Add(result.ResponseResult.Result);
+            Message = "The kitchen was successfully set up.";
+            SetupKitchenCommand = new SetupKitchenCommand();
+        }
+        else
+            Message = result.Message;
+    }
+}
